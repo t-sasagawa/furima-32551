@@ -1,24 +1,60 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ # テーブル設計
 
-Things you may want to cover:
+## usersテーブル
+| Column             | Type   | Options                   |
+|--------------------|--------|---------------------------|
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birthday           | date   | null: false               |
 
-* Ruby version
+### Association
+- has_many :items
+- has_many :orders
 
-* System dependencies
+## itemsテーブル
+| Column           | Type                | Options                   |
+|------------------|---------------------|---------------------------|
+| title            | string              | null: false               |
+| text             | text                | null: false               |
+| category_id      | integer             | null: false               |
+| state_id         | integer             | null: false               |
+| fee_id           | integer             | null: false               |
+| prefectures_id   | integer             | null: false               |
+| days_ship_id     | integer             | null: false               |
+| price            | integer             | null: false               |
+| user             | reference           | foreign_key: true         |
 
-* Configuration
+### Association
+- belongs_to :user
+- has_one :order
 
-* Database creation
+## shippingsテーブル
+| Column          | Type      | Options                   |
+|-----------------|-----------|---------------------------|
+| postal_code     | string    | null: false               |
+| prefectures_id  | integer   | null: false               |
+| municipality    | string    | null: false               |
+| address         | string    | null: false               |
+| building        | string    |                           |
+| phone_number    | string    | null: false               |
+| order           | reference | foreign_key: true         |
 
-* Database initialization
+### Association
+- belongs_to :order
 
-* How to run the test suite
+## ordersテーブル
+| Column | Type      | Options           |
+|--------|-----------|-------------------|
+| user   | reference | foreign_key: true |
+| item   | reference | foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping
