@@ -5,9 +5,11 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 40 }
     validates :text, length: { maximum: 1000 }
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than: 9999999, only_integer: true }
+    validates :price, numericality: { only_integer: true, message: 'Half-width number'}
+    validates_inclusion_of :price, in: 300..9999999, message: 'Out of setting range'
   end
-  with_options numericality: { other_than: 0 } do
+
+  with_options numericality: { other_than: 0 , message: 'Select'} do
     validates :category_id
     validates :state_id
     validates :fee_id
@@ -24,6 +26,5 @@ class Item < ApplicationRecord
   belongs_to :fee
   belongs_to :prefecture
   belongs_to :days_ship
-  # belongs_to_active_hashメソッドを使用する、とカリキュラムにあるが調べても理由が出てこない。つまりどんなメソッドなのか。
-
+  
 end

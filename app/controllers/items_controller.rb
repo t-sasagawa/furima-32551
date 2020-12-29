@@ -12,8 +12,9 @@ before_action :authenticate_user!, except: :index
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    if @item.valid?
+       @item.save
+       redirect_to root_path
     else
       render :new
     end
@@ -23,7 +24,7 @@ before_action :authenticate_user!, except: :index
   private
 
   def item_params
-    params.require(:item).permit(:title, :text, :category_id, :state_id, :fee_id, :prefectures_id, :days_ship_id, :price, :user)
+    params.require(:item).permit(:image, :title, :text, :category_id, :state_id, :fee_id, :prefecture_id, :days_ship_id, :price, :user).merge(user_id: current_user.id)
   end
 
 end
