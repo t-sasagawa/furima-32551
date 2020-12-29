@@ -20,10 +20,10 @@ class Item < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  belongs_to_active_hash :state
-  belongs_to_active_hash :fee
-  belongs_to_active_hash :prefecture
-  belongs_to_active_hash :days_ship
+  belongs_to :state
+  belongs_to :fee
+  belongs_to :prefecture
+  belongs_to :days_ship
   # belongs_to_active_hashメソッドを使用する、とカリキュラムにあるが調べても理由が出てこない。つまりどんなメソッドなのか。
 
 end
