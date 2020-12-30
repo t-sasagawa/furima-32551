@@ -21,6 +21,10 @@ before_action :authenticate_user!, except: :index
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
 
   private
 
