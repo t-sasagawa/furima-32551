@@ -24,7 +24,7 @@ before_action :authenticate_user!, except: :index
   private
 
   def item_params
-    params.require(:item).permit(:image, :title, :text, :category_id, :state_id, :fee_id, :prefecture_id, :days_ship_id, :price, :user).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :title, :text, :category_id, :state_id, :fee_id, :prefecture_id, :days_ship_id, :price).merge(user_id: current_user.id)
   end
 
 end
