@@ -30,6 +30,8 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def update
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
 
