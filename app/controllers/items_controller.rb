@@ -26,6 +26,7 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
