@@ -9,7 +9,7 @@ class ShippingOrder
     validates :address,              format:{ with: /\A[ぁ-んァ-ン一-龥]/,   message: "is invalid. Input full-width characters." } #番地
     validates :phone_number,   numericality:{ only_integer: true,            message: "is invalid. Input half-width characters." } #電話番号
   end
-  validates :building #建物名
+  validates :building, format:{ with: /\A[ぁ-んァ-ン一-龥]/,   message: "is invalid. Input full-width characters." } #建物名
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" } #都道府県
     
 
