@@ -4,4 +4,8 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @order = ShippingOrder.new
   end
+
+  def create
+  end
+
 end
