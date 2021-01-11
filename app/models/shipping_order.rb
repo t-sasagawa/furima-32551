@@ -1,6 +1,6 @@
 class ShippingOrder
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :phone_number
+  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :phone_number, :user_id, :item_id
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -15,8 +15,8 @@ class ShippingOrder
 
   def save
     # 各テーブルにデータを保存する処理を書く
-    oreder = Order.create(item_id: item.id, user_id: user.id)
-    Shipping.create(postal_code: postal_code, prefecture: prefecture, municipality: municipality, address: address, building: building, phone_number: phone_number, order_id: order.id)
+    order = Order.create(item_id: item_id, user_id: user_id)
+    Shipping.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building: building, phone_number: phone_number, order_id: order.id)
   end
 
 
