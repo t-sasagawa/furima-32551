@@ -20,7 +20,7 @@ RSpec.describe ShippingOrder, type: :model do
       it 'postal_codeがなければ購入できない' do
         @order.postal_code = ""
         @order.valid?
-        # binding.pry
+        binding.pry
         expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
 
