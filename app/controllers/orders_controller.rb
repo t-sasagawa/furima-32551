@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @order = ShippingOrder.new(order_params)
     @item = Item.find(params[:item_id])
     if @order.valid?
+       pay_item
        @order.save
        redirect_to root_path
     else
