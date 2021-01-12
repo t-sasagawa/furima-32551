@@ -5,6 +5,17 @@ const pay = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     // console.log("フォーム送信時にイベント発火")
+
+    const formResult = document.getElementById("charge-form");
+    const formData = new FormData(formResult);
+
+    const card = {
+      number: formData.get("shipping_order[number]"),
+      cvc: formData.get("shipping_order[cvc]"),
+      exp_month: formData.get("shipping_order[exp_month]"),
+      exp_year: `20${formData.get("shipping_order[exp_year]")}`,
+    };
+
   });
 };
 
