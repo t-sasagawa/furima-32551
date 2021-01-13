@@ -3,32 +3,37 @@ require 'rails_helper'
 RSpec.describe ShippingOrder, type: :model do
   describe '#create' do
     before do
-      # user = FactoryBot.build(:user)
-      order_user = FactoryBot.build(:user)
-      item = FactoryBot.build(:item)
+      user = FactoryBot.create(:user)
+      order_user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item, user_id: user.id )
       @order = FactoryBot.build(:shipping_order, item_id: item.id, user_id: order_user.id)
+      sleep(1)
     end
 
     describe '商品購入機能' do
       context '商品購入機能がうまくいくとき' do
-        it "postalcode、prefecture_id、municpality、address、building、phone_numberが存在すれば購入できる" do
+        it "token、postalcode、prefecture_id、municpality、address、building、phone_numberが存在すれば購入できる" do
           expect(@order).to be_valid
         end
       end
       
       context '商品購入機能がうまくいかないとき' do
-      it 'postal_codeがなければ購入できない' do
-        @order.postal_code = ""
-        @order.valid?
-        binding.pry
-        expect(@order.errors.full_messages).to include("Postal code can't be blank")
+        it 'tokenがなければ購入できない' do
+          @order.token = ""
+          @order.valid?
+          expect(@order.errors.full_messages).to include("Token can't be blank")
+        end   
+
+       it 'postal_codeがなければ購入できない' do
+          @order.postal_code = ""
+          @order.valid?
+          expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
 
       it 'postal_codeはハイフンがなければ購入できない' do
-        @order.postal_code = "2222222"
-        # binding.pry
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+          @order.postal_code = "2222222"
+          @order.valid?
+          expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end
 
       it "prefecture_idが0だと登録できない" do
