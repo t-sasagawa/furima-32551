@@ -15,6 +15,12 @@ RSpec.describe ShippingOrder, type: :model do
         it "token、postalcode、prefecture_id、municpality、address、building、phone_numberが存在すれば購入できる" do
           expect(@order).to be_valid
         end
+
+        it "buildingが存在しなくても購入できる" do
+          @order.building = ""
+          expect(@order).to be_valid
+        end
+
       end
       
       context '商品購入機能がうまくいかないとき' do
