@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-12-29T02:49:47.761Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.0 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="vZ8MDmtRPqma-HCz_K7N" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-07T11:09:12.772Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="wnJDngI9wVcoJnlyFhyF" version="13.10.0" type="embed">
     <diagram id="I3O4i8iQDIYB0jxfAe-S" name="ページ1">
-        <mxGraphModel dx="1098" dy="402" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="328" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -55,10 +55,10 @@
                 <mxCell id="39" value="orders" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="400" y="320" width="120" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="&lt;ol style=&quot;font-size: 11px&quot;&gt;&lt;li&gt;購入した商品&lt;/li&gt;&lt;/ol&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                <mxCell id="40" value="&lt;ol style=&quot;font-size: 11px&quot;&gt;&lt;li&gt;購入した商品&lt;/li&gt;&lt;li&gt;購入した人物&lt;/li&gt;&lt;/ol&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="260" y="340" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="&lt;ol style=&quot;font-size: 11px&quot;&gt;&lt;li&gt;item&lt;/li&gt;&lt;/ol&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                <mxCell id="41" value="&lt;ol style=&quot;font-size: 11px&quot;&gt;&lt;li&gt;item&lt;/li&gt;&lt;li&gt;user&lt;/li&gt;&lt;/ol&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="400" y="340" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="" style="endArrow=none;html=1;" parent="1" edge="1">
