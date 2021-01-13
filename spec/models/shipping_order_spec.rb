@@ -72,6 +72,24 @@ RSpec.describe ShippingOrder, type: :model do
         expect(@order.errors.full_messages).to include("Phone number Must be 11 characters or less")
       end
 
+      it "phone_numberが英数混合では購入できないこと" do
+        @order.phone_number = "12345abcd"
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid. Input half-width characters.")
+      end
+
+      it "user_idがないと購入できないこと" do
+        @order.user_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idがないと購入できないこと" do
+        @order.item_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
+      end
+
     end
     end
   end
