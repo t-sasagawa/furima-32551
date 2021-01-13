@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
 
+  before_action :set_item
+  before_action :contributor_confirmation, except: :create
+
   def index
-    @item = Item.find(params[:item_id])
     @order = ShippingOrder.new
     if nil != @item.order
       redirect_to root_path
@@ -10,7 +12,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = ShippingOrder.new(order_params)
-    @item = Item.find(params[:item_id])
     if @order.valid?
        pay_item
        @order.save
@@ -24,8 +25,16 @@ class OrdersController < ApplicationController
 
   private
 
+    def set_item
+      @item = Item.find(params[:item_id])
+    end
+
     def order_params
-      params.require(:shipping_order).permit(:postal_code, :prefecture_id, :municipality, :address, :building, :phone_number).merge(token: params[:token],user_id: current_user.id, item_id: params[:item_id])
+      params.require(:shipping_order).permit(:postal_code, :prefecture_id, :municipality, :address, :building, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
+    end
+
+    def contributor_confirmation
+      redirect_to root_path if current_user.id == @item.user_id
     end
 
     def pay_item
