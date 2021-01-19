@@ -24,6 +24,9 @@ before_action :sold_out_no_view, only:[:edit, :update, :destroy]
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.order("created_at DESC")
+
   end
 
   def edit
