@@ -3,13 +3,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to item_path(@comment.item)
+      ActionCable.server.broadcast 'comment_channel', content: @comment, contant: @comment.user
+    #   redirect_to item_path(@comment.item)
     else
       @item = @comment.item
       @comments = @item.comments
       render "items/show"
+    end
   end
-end
 
   
   private
