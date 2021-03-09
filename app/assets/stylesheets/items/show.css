@@ -204,3 +204,16 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comments_lists {
+  width: 40vw;
+  height: 30vh;
+  background-color: #fff;
+  margin: 5vh 0;
+  text-align: center;
+  overflow: auto;
+}
+
+.comment_area {
+  padding-top: 5px;
+}
