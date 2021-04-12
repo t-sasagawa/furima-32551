@@ -19,7 +19,8 @@ set :rbenv_ruby, '2.6.5' #カリキュラム通りに進めた場合、’2.6.5�
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                                  keys: ['~/.ssh/ec2furima.pem'] 
+                                  keys: ['~/.ssh/ec2furima.pem'],
+                                  forward_agent: true 
 # set :ssh_options, auth_methods: ['publickey'],
 #                                   keys: ['~/.ssh/ご自身のキーペア名.pem'] 
 
